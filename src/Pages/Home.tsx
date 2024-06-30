@@ -2,20 +2,18 @@
 
 import { PhotoList } from "@/components/PhotoList/PhotoList";
 import { Search } from "@/components/Search/Search";
-import { useEffect, useRef, useState } from "react";
+import { UIEvent, useEffect, useRef, useState } from "react";
 import styles from "./Home.module.css";
 import { getPhotos } from "@/api";
 
 const getPhotosList = async (
-  searchValue: string, page: number
-): Promise<PhotoResponseData> => {
-  if (!searchValue) {
-    return;
-  }
-    
+  searchValue: string,
+  page: number
+):  Promise<PhotoResponseData | undefined > => {
+
   try {
     const response = await getPhotos(searchValue, page);
-    
+
     if (!response.ok) {
       return;
     }
@@ -34,9 +32,11 @@ export default function HomePage() {
   
   const photoList = useRef<null | HTMLDivElement>(null);
   
-  const onScroll = (e) => {
+  const onScroll = (e: UIEvent<HTMLElement>) => {
     
-    const { scrollTop, clientHeight, scrollHeight } = e.target;
+    if (!photoData) return;
+
+    const { scrollTop, clientHeight, scrollHeight } = e.currentTarget;
     
     const scrollBottom = clientHeight + scrollTop === scrollHeight;
     
@@ -45,11 +45,6 @@ export default function HomePage() {
       setPage(prevPage => prevPage + 1);
     }
   };
-
-  useEffect(() => {
-    window.addEventListener("scroll", onScroll);
-  }, []);
-  
   
   useEffect(() => {
     
@@ -66,11 +61,12 @@ export default function HomePage() {
         getPhotosList(searchValue, page).then((data) => {
           console.log(photoData);
           
-          
-          const photosList = photoData
-            ? { ...data, results: [...photoData.results, ...data.results] }
-            : data;
-          setPhotoData(photosList);
+          if (data) {
+            const photosList = photoData
+              ? { ...data, results: [...photoData.results, ...data.results] }
+              : data;
+            setPhotoData(photosList);
+          }
         });
       }
         
@@ -90,10 +86,7 @@ export default function HomePage() {
         >
           <Search setSearchValue={setSearchValue} />
           {photoData && (
-            <PhotoList
-              photos={photoData.results}
-              photoListRef={photoList}
-            />
+            <PhotoList photos={photoData.results} photoListRef={photoList}/>
           )}
         </section>
       </main>

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import styles from "./PhotoList.module.css";
-import { useState } from "react";
+import { LegacyRef, useState } from "react";
 import { Popup } from "@/ui/Popup/Popup";
 
 const PhotoList = ({
@@ -10,7 +10,7 @@ const PhotoList = ({
   photoListRef,
 }: {
   photos: PhotoItem[];
-  photoListRef: null | HTMLDivElement;
+  photoListRef: LegacyRef<HTMLDivElement> | undefined;
 }) => {
   const [selectedPhoto, setSelectedPhoto] = useState<null | PhotoItem>(null);
 
@@ -31,10 +31,7 @@ const PhotoList = ({
               className={styles.PhotoItem}
               onClick={() => onPickPhoto(photo)}
             >
-              <img
-                src={photo.urls.regular}
-                alt={photo.alt_description}
-              />
+              <img src={photo.urls.regular} alt={photo.alt_description} />
             </div>
           ))}
         </div>

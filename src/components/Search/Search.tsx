@@ -5,8 +5,6 @@ import { SearchIcon } from "../../../public/icons/SerarcIcon";
 import { CancelIcon } from "../../../public/icons/CancelIcon";
 import styles from './Search.module.css';
 import { useRef, useState } from "react";
-import { useQueryString } from "@/hooks/useQueryString";
-import { usePathname, useRouter } from "next/navigation";
 
 const Search = ({ setSearchValue}: {
   setSearchValue: (value: string) => void
