@@ -4,7 +4,7 @@
 
 .PhotoListWrapper {
     display: grid;
-    grid-template-columns: repeat( 6, minmax(204px, 204px) );
+    grid-template-columns: repeat( auto-fit, minmax(204px, 204px) );
     gap: 8px;
 }
 .PhotoItem {
@@ -28,11 +28,11 @@
 
 @media screen and (max-width: 768px) {
     .PhotoListWrapper {
-        grid-template-columns: repeat( 3, minmax(144px, 144px) );
+        grid-template-columns: repeat( auto-fit, minmax(114px, 114px) );
     }
 
     .PhotoItem {
-        width: 144px;
-        height: 144px;
+        width: 114px;
+        height: 114px;
     }
 }

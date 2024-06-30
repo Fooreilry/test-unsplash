@@ -8,6 +8,7 @@
 .HomeWrapper{
     max-width: 1275px;
     margin: 0 auto;
+    min-width: 358px;
 }
 
 .HomeWrapperWithPhotoList{
