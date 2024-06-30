@@ -1,0 +1,34 @@
+.SearchInputWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.Input{
+    padding: 15px 36px;
+    border: none;
+    background-color: #EEEEEE;
+    font-size: 16px;
+    line-height: 18px;
+    border-radius: 12px;
+    width: 100%;
+}
+
+.Input::placeholder{
+    color: #9C9C9C;
+}
+
+.IconLeft,
+.IconRight {
+    height: 24px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.IconLeft {
+    left: 8px;
+}
+
+.IconRight {
+    right: 8px;
+}

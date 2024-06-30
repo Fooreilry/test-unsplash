@@ -1,0 +1,81 @@
+.PopupBackdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0000004D;
+    z-index: 100;
+}
+
+.Popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 760px;
+    height: 760px;
+    border-radius: 12px;
+
+}
+
+.Popup>img {
+    width: 100%;
+    height: 100%;
+}
+
+.PopupCloseBtn{
+    position: fixed;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 24px;
+    padding: 9px;
+    right: 24px;
+    z-index: 101;
+}
+
+.PopupCloseBtnIcon {
+  height: 14px;
+  width: 14px;
+  position: relative;
+  left: -5px;
+  top: -5px;
+  
+}
+
+.PopupCloseBtnIcon::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 24px;
+    background-color: #00000066;
+    transform: rotate(45deg);
+}
+
+.PopupCloseBtnIcon::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 24px;
+    background-color: #00000066;
+    transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 768px) {
+    .Popup{
+        width: 100%;
+        top: 0;
+        left: 0;
+        transform: none;
+        max-height: 386px;
+    }
+    .PopupCloseBtn{
+        top: 16px;
+        right: 16px;
+    }
+}

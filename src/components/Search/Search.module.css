@@ -1,0 +1,16 @@
+.Search{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #fff;
+    padding-top: 40px;
+    padding-bottom: 16px;
+    width: 100%;
+    max-width: 512px;
+}
+
+@media screen and (max-width: 768px) {
+    .Search{
+        padding-top: 10px;
+    }
+}

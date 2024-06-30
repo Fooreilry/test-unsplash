@@ -1,0 +1,27 @@
+.Button{
+  border: none;
+  cursor: pointer;
+  
+
+  width: 100%;
+  max-width: 84px;
+}
+
+.ButtonPrimary{
+    line-height: 18px;
+    font-size: 16px;
+    text-align: center;
+    padding: 15px 16px;
+    background-color: #EB0C0C;
+    border-radius: 12px;
+    color: #FFFFFF;
+}
+
+.ButtonPrimary:hover {
+  background-color: #C30000;
+}
+
+.ButtonIcon{
+  padding: 0;
+  height: 24px;
+}
