@@ -17,8 +17,12 @@
     color: #FFFFFF;
 }
 
-.ButtonPrimary:hover {
-  background-color: #C30000;
+
+
+@media screen and (min-width: 768px) {
+  .ButtonPrimary:hover {
+      background-color: #C30000;
+    }
 }
 
 .ButtonIcon{
