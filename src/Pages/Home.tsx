@@ -76,8 +76,11 @@ export default function HomePage() {
       if (searchValue) {
         getPhotosList(searchValue, page).then((data) => {
           
-          if (data) {
-            const photosList = { ...data, results: [...photoData.results, ...data.results] }
+          if (data && photoData) {
+            const photosList = {
+              ...data,
+              results: [...photoData.results, ...data.results],
+            };
             setPhotoData(photosList);
           }
         });

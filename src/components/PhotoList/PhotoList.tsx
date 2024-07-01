@@ -8,10 +8,11 @@ import { Popup } from "@/ui/Popup/Popup";
 const PhotoList = ({
   photos,
   lastItemRef,
-  isLoading
+  isLoading,
 }: {
   photos: PhotoItem[];
   lastItemRef: LegacyRef<HTMLDivElement> | undefined;
+  isLoading: boolean;
 }) => {
   const [selectedPhoto, setSelectedPhoto] = useState<null | PhotoItem>(null);
 
@@ -21,7 +22,7 @@ const PhotoList = ({
     setSelectedPhoto(photo);
     setOpenPopup(true);
   };
-  
+
   return (
     <div className={styles.PhotoList}>
       {Boolean(photos.length) ? (
@@ -39,7 +40,10 @@ const PhotoList = ({
             Array(10)
               .fill(0)
               .map((_, index) => (
-                <div key={`render-item-${index}`} className={styles.PhotoItem} />
+                <div
+                  key={`render-item-${index}`}
+                  className={styles.PhotoItem}
+                />
               ))}
         </div>
       ) : (
