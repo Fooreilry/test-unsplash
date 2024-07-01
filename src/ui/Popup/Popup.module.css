@@ -39,7 +39,7 @@
 .PopupCloseBtnIcon {
   position: relative;
   top: 9px;
-  left: -14px;
+  left: -14.5px;
 }
 
 .PopupCloseBtnIcon::before{
