@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "./PhotoList.module.css";
 import { LegacyRef, useState } from "react";
 import { Popup } from "@/ui/Popup/Popup";
+import { createPortal } from "react-dom";
 
 const PhotoList = ({
   photos,
@@ -50,12 +51,15 @@ const PhotoList = ({
         <p className={styles.Message}>К сожалению, поиск не дал результатов</p>
       )}
       <div ref={lastItemRef} />
-      <Popup isOpen={openPopup} setOpenPopup={setOpenPopup}>
-        <img
-          src={selectedPhoto?.urls.full}
-          alt={selectedPhoto?.alt_description}
-        />
-      </Popup>
+      {createPortal(
+        <Popup isOpen={openPopup} setOpenPopup={setOpenPopup}>
+          <img
+            src={selectedPhoto?.urls.full}
+            alt={selectedPhoto?.alt_description}
+          />
+        </Popup>,
+        document.body
+      )}
     </div>
   );
 };   

@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #0000004D;
+    background-color: rgba(0, 0, 0, 0.302);
     z-index: 100;
 }
 
@@ -30,18 +30,16 @@
     background-color: #fff;
     border-radius: 50%;
     top: 24px;
-    padding: 9px;
+    width: 32px;
+    height: 32px;
     right: 24px;
     z-index: 101;
 }
 
 .PopupCloseBtnIcon {
-  height: 14px;
-  width: 14px;
   position: relative;
-  left: -5px;
-  top: -5px;
-  
+  top: 9px;
+  left: -14px;
 }
 
 .PopupCloseBtnIcon::before{
@@ -50,7 +48,7 @@
     top: 0;
     right: 0;
     width: 2px;
-    height: 24px;
+    height: 14px;
     background-color: #00000066;
     transform: rotate(45deg);
 }
@@ -61,8 +59,8 @@
     top: 0;
     right: 0;
     width: 2px;
-    height: 24px;
-    background-color: #00000066;
+    height: 14px;
+    background-color: rgba(0, 0, 0, 0.4);
     transform: rotate(-45deg);
 }
 
