@@ -6,8 +6,9 @@ import { CancelIcon } from "../../../public/icons/CancelIcon";
 import styles from './Search.module.css';
 import { useRef, useState } from "react";
 
-const Search = ({ setSearchValue}: {
-  setSearchValue: (value: string) => void
+const Search = ({ setSearchValue, searchValue }: {
+  setSearchValue: (value: string) => void,
+  searchValue: string
 }) => {
   const [inputValue, setInputValue] = useState("");
 
@@ -24,7 +25,7 @@ const Search = ({ setSearchValue}: {
   };
 
   return (
-    <div className={styles.Search}>
+    <div className={`${styles.Search} ${!searchValue && styles.SearchCenter}`}>
       <Input
         ref={inputRef}
         value={inputValue}

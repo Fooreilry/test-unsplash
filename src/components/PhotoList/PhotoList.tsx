@@ -7,10 +7,11 @@ import { Popup } from "@/ui/Popup/Popup";
 
 const PhotoList = ({
   photos,
-  photoListRef,
+  lastItemRef,
+  isLoading
 }: {
   photos: PhotoItem[];
-  photoListRef: LegacyRef<HTMLDivElement> | undefined;
+  lastItemRef: LegacyRef<HTMLDivElement> | undefined;
 }) => {
   const [selectedPhoto, setSelectedPhoto] = useState<null | PhotoItem>(null);
 
@@ -20,9 +21,9 @@ const PhotoList = ({
     setSelectedPhoto(photo);
     setOpenPopup(true);
   };
-
+  
   return (
-    <div className={styles.PhotoList} ref={photoListRef}>
+    <div className={styles.PhotoList}>
       {Boolean(photos.length) ? (
         <div className={styles.PhotoListWrapper}>
           {photos.map((photo) => (
@@ -34,10 +35,17 @@ const PhotoList = ({
               <img src={photo.urls.regular} alt={photo.alt_description} />
             </div>
           ))}
+          {isLoading &&
+            Array(10)
+              .fill(0)
+              .map((_, index) => (
+                <div key={`render-item-${index}`} className={styles.PhotoItem} />
+              ))}
         </div>
       ) : (
         <p className={styles.Message}>К сожалению, поиск не дал результатов</p>
       )}
+      <div ref={lastItemRef} />
       <Popup isOpen={openPopup} setOpenPopup={setOpenPopup}>
         <img
           src={selectedPhoto?.urls.full}

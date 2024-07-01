@@ -1,12 +1,20 @@
 .Search{
     display: flex;
     align-items: center;
+    
     gap: 8px;
     background-color: #fff;
     padding-top: 40px;
     padding-bottom: 16px;
     width: 100%;
-    max-width: 512px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
+}
+
+.SearchCenter {
+    justify-content: center;
 }
 
 @media screen and (max-width: 768px) {
