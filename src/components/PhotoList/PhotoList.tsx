@@ -54,7 +54,7 @@ const PhotoList = ({
       {createPortal(
         <Popup isOpen={openPopup} setOpenPopup={setOpenPopup}>
           <img
-            src={selectedPhoto?.urls.full}
+            src={selectedPhoto?.urls.regular}
             alt={selectedPhoto?.alt_description}
           />
         </Popup>,
